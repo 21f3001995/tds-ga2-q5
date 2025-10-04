@@ -17,7 +17,7 @@ jobs:
           key: cache-6aeb8f2
 
       - name: prime-cache-6aeb8f2
-        run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
+        run: echo 'Cache hit: ${{ steps.cache.outputs.cache-hit }}'
 
       - name: 21f3001995@ds.study.iitm.ac.in
         run: echo "Hello, World!"
