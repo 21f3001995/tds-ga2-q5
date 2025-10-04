@@ -17,7 +17,7 @@ jobs:
           key: cache-6aeb8f2
 
       - name: prime-cache-6aeb8f2
-        if: steps.cache-deps.outputs.cache-hit == 'true'
+        if: steps.cache-deps.outputs['cache-hit'] == 'true'
         run: echo "Cache hit"
 
       - name: 21f3001995@ds.study.iitm.ac.in
