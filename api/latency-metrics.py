@@ -1,4 +1,5 @@
 import json
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -14,7 +15,9 @@ app.add_middleware(
     expose_headers=["*"],  # expose all headers to the browser in response
 )
 
-with open("./q-vercel-latency.json") as f:
+# Use absolute path to ensure file is found on Vercel
+DATA_PATH = os.path.join(os.path.dirname(__file__), "../q-vercel-latency.json")
+with open(DATA_PATH) as f:
     telemetry = json.load(f)
 
 class MetricsRequest(BaseModel):
