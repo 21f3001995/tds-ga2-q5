@@ -6,5 +6,18 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: cache-6aeb8f2
+
+      - name: prime-cache-6aeb8f2
+        run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
+
       - name: 21f3001995@ds.study.iitm.ac.in
         run: echo "Hello, World!"
