@@ -59,7 +59,7 @@ async def latency_metrics(req: MetricsRequest):
                 "avg_uptime": avg_uptime,
                 "breaches": breaches,
             }
-        return result
+        return {"regions": result}
     except Exception as e:
         return JSONResponse(
             status_code=500,
