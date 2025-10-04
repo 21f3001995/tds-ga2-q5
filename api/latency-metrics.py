@@ -45,7 +45,7 @@ async def latency_metrics(req: MetricsRequest):
             if not records:
                 continue
             latencies = [r["latency_ms"] for r in records]
-            uptimes = [r["uptime"] for r in records]
+            uptimes = [r["uptime_pct"] for r in records]
             breaches = 0
             for latency in latencies:
                 if latency > req.threshold_ms:
